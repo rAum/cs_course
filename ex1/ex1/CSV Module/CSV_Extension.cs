@@ -9,10 +9,9 @@ namespace ex1
 {
     public static class EnumerableExtensions
     {
-        public static IEnumerable<T> DumpToCsv<T>(this IEnumerable<T> data, string filename)
+        public static string ToCsv<T>(this IEnumerable<T> data)
         {
-            CsvWriter.WriteWithHeader<T>(data, filename);
-            return data;
+            return Csv.GenerateWithHeader<T>(data);
         }
     }
 }

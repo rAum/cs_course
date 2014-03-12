@@ -44,7 +44,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CSV Module\CsvWriter.cs" />
+    <Compile Include="CSV Module\Csv.cs" />
     <Compile Include="CSV Module\CSV_Extension.cs" />
     <Compile Include="Models\CensusModel.cs" />
     <Compile Include="Program.cs" />

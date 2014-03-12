@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,8 +24,8 @@ namespace ex1
         private static void ProcessData(StateGDPCensusData data_file)
         {
             var state_info = data_file.GetStateInfo();
-
-            state_info.OrderBy(x => x.State).DumpToCsv("output.txt");
+            string csv = state_info.OrderBy(x => x.State).ToCsv();
+            File.WriteAllText("output.txt", csv);
         }
 
         private static StateGDPCensusData ReadArgs(string[] args)

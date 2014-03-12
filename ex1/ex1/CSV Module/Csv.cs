@@ -8,9 +8,9 @@ using System.IO;
 
 namespace ex1
 {
-    class CsvWriter
+    class Csv
     {
-        public static void WriteWithHeader<T>(IEnumerable<T> input, string filename)
+        public static string GenerateWithHeader<T>(IEnumerable<T> input)
         {
             StringBuilder sb = new StringBuilder();
 
@@ -30,7 +30,7 @@ namespace ex1
                 sb.Remove(sb.Length - 1, 1).AppendLine();
             }
 
-            File.WriteAllText(filename, sb.ToString());
+            return sb.ToString();
         }
 
         private static string process<T>(T x)
