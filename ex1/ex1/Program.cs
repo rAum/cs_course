@@ -22,7 +22,9 @@ namespace ex1
 
         private static void ProcessData(StateGDPCensusData data_file)
         {
- 	        
+            var state_info = data_file.GetStateInfo();
+
+            state_info.OrderBy(x => x.State).DumpToCsv("output.txt");
         }
 
         private static StateGDPCensusData ReadArgs(string[] args)
