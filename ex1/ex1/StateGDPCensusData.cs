@@ -36,7 +36,7 @@ namespace ex1
                     {
                         var tmp = (JArray)JToken.ReadFrom(new JsonTextReader(f_census));
                         data.census_data = tmp.Select(x => new CensusModel() {
-                            State = (string)x["state"],
+                            State         = (string)x["state"],
                             SavingBalance = ParseMoneyAmount((string)x["savingsBalance"])
                         });
 
@@ -70,16 +70,7 @@ namespace ex1
                                  GDP = state.GDP,
                                  AverageSavings = merged.Select(x => x.SavingBalance).DefaultIfEmpty(0).Average(),
                                  CensusEntries = merged.Count()
-                             };                          
-
-
-            // probably much slower.
-            //var re = (from state in state_gdp_data
-            //           select new StateAverageModel()
-            //           {
-            //               State = state.State,
-            //               StateAverage = census_data.Where(x => x.State == state.State).Select(x => x.SavingBalance).DefaultIfEmpty(0).Average()
-            //           });
+                             };
 
             return state_info;
         }

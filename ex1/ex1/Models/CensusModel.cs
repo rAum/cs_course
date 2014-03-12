@@ -9,15 +9,15 @@ namespace ex1
     class CensusModel
     {
         public string State { get; set; }
-        public Decimal SavingBalance {get; set;}
+        public Decimal SavingBalance { get; set; }
         // not needed for now:
-        //public UInt16 Age;
-        //public string FirstName;
-        //public string LastName;
-        //public string Gender;
-        //public string Company;
-        //public string Email;
-        //public string Phone;
-        //public string City;
+        //public UInt16 Age { get; set; }
+        //public string FirstName { get; set; }
+        //public string LastName { get; set; }
+        //public string Gender { get; set; }
+        //public string Company { get; set; }
+        //public string Email { get; set; }
+        //public string Phone { get; set; }
+        //public string City { get; set; }
     }
 }

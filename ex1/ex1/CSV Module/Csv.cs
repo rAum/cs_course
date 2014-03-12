@@ -15,19 +15,22 @@ namespace ex1
             StringBuilder sb = new StringBuilder();
 
             IList<PropertyInfo> propertyInfos = typeof(T).GetProperties();
-            foreach (PropertyInfo propertyInfo in propertyInfos)
+
+            sb.Append(propertyInfos.First().Name);
+            foreach (PropertyInfo propertyInfo in propertyInfos.Skip(1))
             {
-                sb.Append(propertyInfo.Name).Append(",");
+                sb.Append(",").Append(propertyInfo.Name);
             }
-            sb.Remove(sb.Length - 1, 1).AppendLine();
+            sb.AppendLine();
 
             foreach (T t in input)
             {
-                foreach (PropertyInfo propertyInfo in propertyInfos)
+                sb.Append(process(propertyInfos.First().GetValue(t, null)));
+                foreach (PropertyInfo propertyInfo in propertyInfos.Skip(1))
                 {
-                    sb.Append(process(propertyInfo.GetValue(t, null))).Append(",");
+                    sb.Append(",").Append(process(propertyInfo.GetValue(t, null)));
                 }
-                sb.Remove(sb.Length - 1, 1).AppendLine();
+                sb.AppendLine();
             }
 
             return sb.ToString();
