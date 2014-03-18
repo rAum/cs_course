@@ -24,14 +24,15 @@ namespace ex2
             {
                 ProgramOptions options = ProgramOptions.ConstructFrom(args);
 
-                System.Random random = new System.Random(options.Seed);
                 TimeSpan ts = new TimeSpan(365 * options.Years, 0, 0, 0);
                 ts = new TimeSpan(ts.Ticks / options.Steps); // ts.TotalDays / 365.0 <=> t / n 
+
+                Random rnd = new Random(options.Seed);
 
                 List<StockEstimate> paths = new List<StockEstimate>();
                 for (int i = 0; i < options.Count; ++i)
                 {
-                    GeometricBrownianMotionMarket market = new GeometricBrownianMotionMarket(random, options.Price, options.Drift, options.Vol);
+                    GeometricBrownianMotionMarket market = new GeometricBrownianMotionMarket(rnd, options.Price, options.Drift, options.Vol);
 
                     List<double> logreturn = new List<double>();
                     List<StockEstimate> prices = new List<StockEstimate>();

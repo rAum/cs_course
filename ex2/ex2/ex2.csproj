@@ -41,12 +41,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BoxMuller.cs" />
     <Compile Include="CSV Module\Csv.cs" />
     <Compile Include="CSV Module\CSV_Extension.cs" />
     <Compile Include="IEvolve.cs" />
     <Compile Include="IMarketData.cs" />
     <Compile Include="Market.cs" />
-    <Compile Include="MarketOptions.cs" />
     <Compile Include="NormalDistribution.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="ProgramOptions.cs" />

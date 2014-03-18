@@ -4,21 +4,25 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using CS.Market;
+using ex2_BoxMuller;
 
 namespace ex2
 {
     class GeometricBrownianMotionMarket : IEvolve, IMarketData
     {
-        public GeometricBrownianMotionMarket(System.Random random, double price,  double drift, double volatility)
+        public GeometricBrownianMotionMarket(Random random, double price,  double drift, double volatility)
         {
-            rnd = random;
             time = DateTime.Today;
             stockPrice = price;
             this.volatility = volatility;
             this.drift = drift;
-
+            
             dv = drift - volatility * volatility * 0.5;
+
+            bm = new BoxMuller(random);
         }
+
+        BoxMuller bm;
 
         public void Evolve(TimeSpan offset)
         {
@@ -26,8 +30,9 @@ namespace ex2
                 return;
 
             double tn = offset.TotalDays / 365.0;
-            
-            stockPrice = stockPrice * Math.Exp(dv * tn + Math.Sqrt(tn)*volatility * rnd.NextDouble());
+            bm.Next();
+            double power = dv * tn + Math.Sqrt(tn)*volatility * bm.Z1;
+            stockPrice = stockPrice * Math.Exp(power);
             time += offset;
         }
 
@@ -43,7 +48,6 @@ namespace ex2
 
         DateTime time;
         double stockPrice;
-        System.Random rnd;
         double drift, volatility, dv;
     }
 }
