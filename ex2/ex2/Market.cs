@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using CS.Market;
 using ex2_BoxMuller;
+using CS.Numerical;
 
 namespace ex2
 {
@@ -19,10 +20,12 @@ namespace ex2
             
             dv = drift - volatility * volatility * 0.5;
 
-            bm = new BoxMuller(random);
+            //bm = new BoxMuller(random);
+            this.random = random;
         }
 
-        BoxMuller bm;
+        //BoxMuller bm;
+        Random random;
 
         public void Evolve(TimeSpan offset)
         {
@@ -30,8 +33,8 @@ namespace ex2
                 return;
 
             double tn = offset.TotalDays / 365.0;
-            bm.Next();
-            double power = dv * tn + Math.Sqrt(tn)*volatility * bm.Z1;
+            //bm.Next();
+            double power = dv * tn + Math.Sqrt(tn) * volatility * NormalDistribution.InverseCDF(random.NextDouble());// bm.Z1;
             stockPrice = stockPrice * Math.Exp(power);
             time += offset;
         }
