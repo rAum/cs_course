@@ -3,6 +3,8 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ex1", "ex1\ex1.csproj", "{DBD5F471-35FD-4BEA-9F86-1A4D5F23CC95}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ex2_BoxMuller", "..\ex2_BoxMuller\ex2_BoxMuller.csproj", "{E6ED977D-AEB2-44E0-B6C8-60441F05EF9E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -13,6 +15,10 @@ Global
 		{DBD5F471-35FD-4BEA-9F86-1A4D5F23CC95}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DBD5F471-35FD-4BEA-9F86-1A4D5F23CC95}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DBD5F471-35FD-4BEA-9F86-1A4D5F23CC95}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E6ED977D-AEB2-44E0-B6C8-60441F05EF9E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E6ED977D-AEB2-44E0-B6C8-60441F05EF9E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E6ED977D-AEB2-44E0-B6C8-60441F05EF9E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E6ED977D-AEB2-44E0-B6C8-60441F05EF9E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
