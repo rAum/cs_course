@@ -4,7 +4,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using CS.Market;
-using ex2_BoxMuller;
 using CS.Numerical;
 
 namespace ex2
@@ -13,15 +12,13 @@ namespace ex2
     {
         public GeometricBrownianMotionMarket(Random random, double price,  double drift, double volatility)
         {
-            time = DateTime.Today;
-            stockPrice = price;
+            time            = DateTime.Today; // temporary, no info about start date
+            stockPrice      = price;
             this.volatility = volatility;
-            this.drift = drift;
-            
+            this.drift      = drift;
+            this.random     = random;
+        
             dv = drift - volatility * volatility * 0.5;
-
-            //bm = new BoxMuller(random);
-            this.random = random;
         }
 
         //BoxMuller bm;
@@ -32,10 +29,10 @@ namespace ex2
             if (offset <= TimeSpan.Zero) 
                 return;
 
-            double tn = offset.TotalDays / 365.0;
-            //bm.Next();
-            double power = dv * tn + Math.Sqrt(tn) * volatility * NormalDistribution.InverseCDF(random.NextDouble());// bm.Z1;
-            stockPrice = stockPrice * Math.Exp(power);
+            double tn    = offset.TotalDays / 365.0;
+            double power = dv * tn + Math.Sqrt(tn) * volatility * NormalDistribution.InverseCDF(random.NextDouble());            
+            stockPrice   = stockPrice * Math.Exp(power);
+            
             time += offset;
         }
 

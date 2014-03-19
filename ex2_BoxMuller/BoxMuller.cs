@@ -29,13 +29,12 @@ namespace ex2_BoxMuller
 
         public void Next()
         {
-            double u1 = rnd.NextDouble();
             double u2 = TWO_PI * rnd.NextDouble();
 
-            u1 = Math.Sqrt(-2.0 * Math.Log(u1));
+            z1 = z2 = Math.Sqrt(-2.0 * Math.Log(rnd.NextDouble()));
 
-            z1 = u1 * Math.Cos(u2);
-            z2 = u1 * Math.Sin(u2);
+            z1 *= Math.Cos(u2);
+            z2 *= Math.Sin(u2);
         }
     }
 }
